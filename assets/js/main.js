@@ -44,7 +44,7 @@ sliders.forEach((slider, index) => {
 const weeklyOrders = document.getElementById('weekly-orders')
 const avgValue = document.getElementById('avg-value')
 const savings = document.getElementById('savings')
-const commision = 0.25
+const commision = 0.14
 
 weeklyOrders.addEventListener('input', () => {
   calculateSavings()
@@ -55,7 +55,7 @@ avgValue.addEventListener('input', () => {
 })
 
 const calculateSavings = () => {
-  const totalCommision = weeklyOrders.value * avgValue.value * commision
+  const totalCommision = Math.round(weeklyOrders.value * avgValue.value * commision)
 
   savings.textContent = totalCommision
 }
@@ -74,8 +74,8 @@ avgValueMbl.addEventListener('input', () => {
 })
 
 const calculateSavingsMbl = () => {
-  const totalCommisionMbl =
-    weeklyOrdersMbl.value * avgValueMbl.value * commision
+  const totalCommisionMbl = Math.round(weeklyOrdersMbl.value * avgValueMbl.value * commision)
 
+  console.log(totalCommisionMbl);
   savingsMbl.textContent = totalCommisionMbl
 }
